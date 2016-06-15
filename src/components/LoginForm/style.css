@@ -1,0 +1,21 @@
+.loginForm {
+    width: 300px;
+    display: block;
+    margin: 100px auto;
+    padding: 20px;
+    background: white;
+    border: 1px solid #ededed;
+    border-radius: 5px;
+}
+
+.loginForm > input {
+    width: 100%;
+    display: inline-block;
+    height: 30px;
+    padding: 6px;
+    border-radius: 3px;
+    border: 1px solid #ededed;
+    margin-bottom: 10px;
+    font-size: 14px;
+    line-height: 18px;
+}
