@@ -20,10 +20,7 @@ class App extends React.Component {
 	render() {
 		if (this.state.authenticated) {
 			return (
-				<Router>
-					<Route path="/" component={Search}>
-					</Route>
-				</Router>
+				<Search {...this.state}/>
 			)
 		} else {
 			return ( <LoginForm onLogin={this.handleLogin.bind(this)}/> )
