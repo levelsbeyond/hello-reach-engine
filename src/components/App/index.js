@@ -8,7 +8,6 @@ import Search from "../Search"
 class App extends React.Component {
 
 	handleLogin(payload) {
-		console.log(payload);
 		this.setState({authenticated: true, authenticationPayload: payload})
 	};
 
