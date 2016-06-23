@@ -53,7 +53,7 @@ class Search extends React.Component {
 		var offsetLimit = `OFFSET ${this.state.offset} SIZE ${this.state.limit} ORDER_BY dateUpdated DESC`;
 		var assetTypes = `types=video&types=image&types=document&types=other&types=collection&types=audio&types=clip&types=project`;
 		var searchUrl = `reachengine/api/inventory/search?${assetTypes}&rql=${offsetLimit}&keywords=${this.state.keywords}`;
-
+		
 		request
 			.get(`${this.props.authenticationPayload.reachEngineUrl}/${searchUrl}`)
 			.type('application/json')

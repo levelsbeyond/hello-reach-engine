@@ -1,4 +1,3 @@
-
 var rucksack = require('rucksack-css');
 var webpack = require('webpack');
 var path = require('path');
