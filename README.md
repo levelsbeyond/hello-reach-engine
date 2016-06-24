@@ -41,7 +41,7 @@ Example
 
 ### How do I authenticate with the Reach Engine Server?
 Take a look at this file:
-[`src/components/app/loginform/index.js`](src/components/app/loginform/index.js)
+[`src/components/Loginform/index.js`](src/components/Loginform/index.js)
 
 Find this method in the file: `onLoginFormSubmit(e)`
 
@@ -50,12 +50,12 @@ The method is using the POST method to this URL:
 
 
 ### How do I get a list of assets and search on that list?
-Take a look at this file: [`src/components/app/search/index.js`](src/components/app/search/index.js)
+Take a look at this file: [`src/components/Search/index.js`](src/components/Search/index.js)
 
 Find this method in the file: `search()`
 
 ### How do I get thumbnail images?
 Take a look at this file:
-[`src/components/app/search/index.js`](src/components/app/search/index.js)
+[`src/components/app/search/index.js`](src/components/Search/index.js)
 
 Find this method: `getThumbs()`
