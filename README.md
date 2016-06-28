@@ -37,6 +37,12 @@ Example
 [Webpack](http://webpack.github.io)
 
 
+## API Documentation
+
+For a full list of Reach Engine APIs see our API documentation.
+http://docs.reachengineapi.apiary.io/
+
+
 ## Examples
 
 ### How do I authenticate with the Reach Engine Server?
