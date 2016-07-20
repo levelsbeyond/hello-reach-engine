@@ -65,3 +65,14 @@ Take a look at this file:
 [`src/components/app/search/index.js`](src/components/Search/index.js)
 
 Find this method: `getThumbs()`
+
+## Software Requirements
+
+The Hello Reach Engine App has been tested with the following:
+
+npm v2.14.7
+
+node v4.2.1
+
+gcc 4.8
+
