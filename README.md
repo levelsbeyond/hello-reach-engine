@@ -70,9 +70,9 @@ Find this method: `getThumbs()`
 
 The Hello Reach Engine App has been tested with the following:
 
-npm v2.14.7
+npm v2.15.1
 
-node v4.2.1
+node v4.4.4
 
 gcc 4.8
 
