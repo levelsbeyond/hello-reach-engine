@@ -77,8 +77,8 @@ class Search extends React.Component {
 				|| asset.inventoryKey === 'audio'
 				|| asset.inventoryKey === 'project'){
 
-				  // no thumbs for these.
-					asset.thumbnail="";
+				// no thumbs for these.
+				asset.thumbnail="";
 			} else {
 				// standard thumbnail url pattern
 				var thubmnailUrl = `/reachengine/api/inventory/${asset.inventoryKey}s/${asset.id}/thumbnail/raw`;
@@ -97,6 +97,19 @@ class Search extends React.Component {
 	}
 
 	render() {
+		var LinkComponent = React.createClass({
+			render: function() {
+				var url ="#/assets/" + this.props.rowData.inventoryKey + "/"+ this.props.rowData.id;
+				return <a href={url}>{this.props.data}</a>
+			}
+		});
+
+		var columnMeta = [
+			{
+				"columnName": "name",
+				"customComponent": LinkComponent
+			}
+		];
 		return <Griddle
 			useExternal={true}
 			externalSetFilter={::this.setFilter}
@@ -106,6 +119,7 @@ class Search extends React.Component {
 			externalMaxPage={Math.round(this.state.total/this.state.limit)}
 			results={this.state.searchData}
 			columns={this.state.searchHeaders}
+			columnMetadata={columnMeta}
 			showFilter={true}/>;
 	}
 }
