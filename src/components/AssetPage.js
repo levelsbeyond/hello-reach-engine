@@ -70,7 +70,7 @@ class AssetPage extends Component {
                         return this.getVideoStreamingURL(this.props.params.id);
                     })
                     .then(streamingUrlResponse => {
-                        this.setState({streamingUrl: streamingUrlResponse});
+                        this.setState({streamingUrl: streamingUrlResponse.streamingUrl});
                     });
                 break;
             case 'clip':
@@ -175,22 +175,24 @@ class AssetPage extends Component {
 
     getImageContentUrl(contentId) {
         let { reachEngineUrl, sessionKeyHeader} = this.props.authenticationPayload;
+        let sessionKey = sessionKeyHeader.__sessionkey;
 
         // By adding /raw to a content url we can load an image content proxy
         let { type, id } = this.props.params;
         let assetInventoryUrl = this.buildAssetInventoryUrl(type, id);
-        return `${reachEngineUrl}/${assetInventoryUrl}/contents/${contentId}/raw?attach=false`;
+        return `${reachEngineUrl}/${assetInventoryUrl}/contents/${contentId}/raw?attach=false&__sessionKey=${sessionKey}`;
     }
 
 
     getAudioContentUrl() {
-        let { reachEngineUrl } = this.props.authenticationPayload;
+        let { reachEngineUrl, sessionKeyHeader } = this.props.authenticationPayload;
+        let sessionKey = sessionKeyHeader.__sessionkey;
 
         // Audo content can be retrieved as a sub resource of Inventory/Audio/Content
         let { type, id } = this.props.params;
         let assetInventoryUrl = this.buildAssetInventoryUrl(type, id);
         // Here we will get the url to stream an audio proxy
-        return `${reachEngineUrl}/${assetInventoryUrl}/proxy/raw?attach=false`;
+        return `${reachEngineUrl}/${assetInventoryUrl}/proxy/raw?attach=false&__sessionKey=${sessionKey}`;
     }
 
     getVideoStreamingURL(videoId) {
