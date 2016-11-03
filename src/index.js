@@ -4,6 +4,7 @@ import React, {Component} from "react";
 import App from "./components/App";
 import AssetPage from "./components/AssetPage";
 import Search from "./components/Search";
+import style from './style.css';
 
 render((
     <Router history={hashHistory}>
