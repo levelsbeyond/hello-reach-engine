@@ -9,7 +9,6 @@ var config = {
 	devtool: 'source-map',
 	context: path.join(__dirname, './src'),
 	entry: {
-		react: 'react-hot-loader/patch',
 		jsx: './index.js',
 		vendor: ['react', 'debug']
 	},

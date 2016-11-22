@@ -8,9 +8,9 @@ class LoginForm extends Component {
 		super(props, context);
 
 		this.state = {
-			reachEngineUrl: '',
-			username: '',
-			password: ''
+			reachEngineUrl: 'http://10.0.1.122:8080',
+			username: 'system',
+			password: 'password'
 		};
 	}
 
