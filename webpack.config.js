@@ -9,6 +9,7 @@ var config = {
 	devtool: 'source-map',
 	context: path.join(__dirname, './src'),
 	entry: {
+		react: 'react-hot-loader/patch',
 		jsx: './index.js',
 		vendor: ['react', 'debug']
 	},
@@ -27,10 +28,7 @@ var config = {
 			{
 				test: /\.(js|jsx)$/,
 				exclude: /node_modules/,
-				loaders: [
-					'react-hot',
-					'babel-loader'
-				]
+				loaders: ['babel-loader']
 			},
 		],
 	},
