@@ -8,6 +8,7 @@
 
 html,
 body {
+		position: relative;
     margin: 0;
     padding: 0;
     width: 100%;
@@ -42,9 +43,9 @@ section {
 }
 
 section > summary {
-  vertical-align: top;
-  display: inline-block;
-  min-width: 400px;
+  	vertical-align: top;
+  	display: inline-block;
+  	min-width: 400px;
 }
 
 section > aside {
@@ -66,4 +67,52 @@ h1 {
     padding: 50px;
     background: white;
     border-bottom: 1px solid #ededed;
+}
+.modal {
+		-webkit-box-shadow: 10px 10px 51px -1px rgba(0,0,0,0.75);
+		-moz-box-shadow: 10px 10px 51px -1px rgba(0,0,0,0.75);
+		box-shadow: 10px 10px 51px -1px rgba(0,0,0,0.75);
+		width: 800px;
+		max-height: 600px;
+		position: absolute;
+		top: 9.5%;
+		left: 23%;
+		background-color: whitesmoke;
+		border-radius: 10px;
+		z-index: 11;
+		border: 3px solid rgba(0, 0, 0, 0.3);
+		overflow: auto;
+}
+input {
+		margin-bottom: 5px;
+		margin-top: 2.5px;
+		padding: 5px;
+}
+.Select-placeholder {
+		margin-top: 2px;
+		text-align: center;
+		font-weight: bold;
+}
+#contained-modal-title-lg {
+		background: whitesmoke;
+		text-align: center;
+}
+.modal-body {
+		font-size: 1.1em;
+		font-family: monospace, monospace;
+		line-height: 1.4em;
+		border-radius: 5px;
+		overflow: auto;
+		padding-right: 100px;
+		padding-bottom: 30px;
+		padding-top: 20px;
+		margin-left: 120px;
+		overflow: auto;
+}
+.modal-footer {
+		padding: 20px;
+		text-align: center;
+}
+		overflow: scroll;
+		.modal-content {
 }
