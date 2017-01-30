@@ -4,40 +4,52 @@ import Modal from "react-bootstrap/lib/Modal";
 import Button from "react-bootstrap/lib/Button";
 
 class WorkflowModal extends Component {
-    render() {
-        if (!this.props.workflowParams) {
-            return (
-                <Modal className="modal" show={this.props.show} bsSize="large" aria-labelledby="contained-modal-title-lg">
-                    <Modal.Title id="contained-modal-title-lg">
-                        These are not the Workflow Parameters you are looking for
-                    </Modal.Title>
-                    <Modal.Footer className="modal-footer">
-                        <Button onClick={this.props.onHide}>Close
-                        </Button>
-                    </Modal.Footer>
-                </Modal>
-            )
-        } else {
-            return (
-              <Modal className="modal" show={this.props.show} bsSize="large" aria-labelledby="contained-modal-title-lg">
-                <Modal.Title id="contained-modal-title-lg">
-                    Global Workflow Selected: {this.props.workflowName}
-                  <h5>
-                      {this.props.reachEngineUrl}/reachengine/api/workflows/{this.props.workflowId}/params?includeUserInput=true&includeRequired=true&incincludeOther=false
-                  </h5>
-                </Modal.Title>
-                <Modal.Body className="modal-body">
-									<pre>
-                    {JSON.stringify(this.props.workflowParams.rows, null, 4)}
-									</pre>
-                </Modal.Body>
-                <Modal.Footer className="modal-footer">
-	                <Button onClick={this.props.onHide}>Close</Button>
-                </Modal.Footer>
-              </Modal>
-            )
-        }
-    }
+	renderTitle() {
+		if (!this.props.workflowParams) {
+			return (
+				<center>These are not the Workflow Parameters you are looking for</center>
+			)
+		} else {
+			return (
+				<div>
+					Global Workflow Selected: {this.props.workflowName}
+					<h5>
+						{this.props.reachEngineUrl}/reachengine/api/workflows/{this.props.workflowId}/params?includeUserInput=true&includeRequired=true&incincludeOther=false
+					</h5>
+				</div>
+			)
+		}
+	}
+	renderBody() {
+		if (!this.props.workflowParams) {
+			return (
+				<center> Nothing to display. </center>
+			)
+		} else {
+			return (
+				<pre>
+					{JSON.stringify(this.props.workflowParams.rows, null, 4)}
+				</pre>
+			)
+		}
+	}
+  render() {
+		let title = this.renderTitle();
+		let body = this.renderBody();
+    return (
+      <Modal className="modal" show={this.props.show} bsSize="large" aria-labelledby="contained-modal-title-lg">
+				<Modal.Title id="contained-modal-title-lg">
+          {title}
+				</Modal.Title>
+				<Modal.Body>
+					{body}
+				</Modal.Body>
+        <Modal.Footer className="modal-footer">
+          <Button onClick={this.props.onHide}>Close</Button>
+        </Modal.Footer>
+      </Modal>
+    )
+  }
 }
 
 export default WorkflowModal
