@@ -1,0 +1,27 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: node:4
+
+    working_directory: ~/hello-reach-engine
+
+    steps:
+      - checkout
+
+      - restore_cache:
+          key: node-dependencies-{{ checksum "package.json" }}
+
+      - run: npm config set registry http://levelsbeyond.artifactoryonline.com/levelsbeyond/api/npm/npm-virtual
+      - run: npm config set always-auth true
+      - run: npm config set email $ARTIFACTORY_EMAIL
+      - run: npm config set _auth $ARTIFACTORY_AUTH_KEY
+      - run: npm config list
+      - run: npm install --quiet
+
+      - save_cache:
+          key: node-dependencies-{{ checksum "package.json" }}
+          paths:
+            - ~/hello-reach-engine/node_modules
+
+      - run: npm test
